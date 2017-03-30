@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 import {connect} from "../../lib/connection"
 
-var facultySchema = mongoose.Schema({
-  name: String,
-  subject: []
+let facultySchema = mongoose.Schema({
+  name : String,
+  subject : []
 });
 
 export default mongoose.model("Faculty",facultySchema);

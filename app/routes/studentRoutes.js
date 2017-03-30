@@ -2,7 +2,7 @@ import express from 'express';
 import StudentController from "../controllers/studentController";
 
 export default function initStudentRoutes(){
-  var studentRouter = express.Router();
+  let studentRouter = express.Router();
   studentRouter.get('/',  StudentController.showAll);
   studentRouter.get('/:studentId', StudentController.showOne);
   studentRouter.post('/', StudentController.addData);
