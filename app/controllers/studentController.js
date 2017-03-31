@@ -38,7 +38,10 @@ export default class StudentController {
   static addSubject(req, res){
     let subject = req.body.subject;
     let id = req.params.studentId;
-    Subject.find({ sub_name : subject}, (err,data) => {
+    Subject
+     .find()
+     .where('sub_name').equals(subject)
+     .then(data => {
       if(err)
         res.send("no such subject present");
       else{
@@ -62,7 +65,7 @@ export default class StudentController {
       if(err)
         res.send(err);
       else{
-        dataobj = StudentController.filterData(dataobj);
+        dataobj = _.pick(dataobj, 'name', 'dob', 'address');
         res.status(201).send(dataobj);
       }
     });
